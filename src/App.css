@@ -35,3 +35,14 @@
     margin-right: 12px;
   }
 }
+
+.aucun-resultat {
+  text-align: center;
+  color: #e67e22;
+  font-size: 1rem;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fef9f3;
+  border-radius: 8px;
+  border: 2px dashed #e67e22;
+}

@@ -10,6 +10,11 @@ function Recherche({ valeur, onChange }) {
         value={valeur}
         onChange={e => onChange(e.target.value)}
       />
+      {valeur && (
+        <button className="recherche-clear" onClick={() => onChange("")}>
+          ✕
+        </button>
+      )}
     </div>
   );
 }

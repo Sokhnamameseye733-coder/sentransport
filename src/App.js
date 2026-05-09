@@ -10,6 +10,7 @@ import Footer from './Footer';
 function App() {
   const [recherche, setRecherche] = useState("");
   const [ligneSelectionnee, setLigneSelectionnee] = useState(null);
+  const [nbRecherches, setNbRecherches] = useState(0);
 
   const lignes = [
     { id: 1, numero: "1", depart: "Parcelles Assainies",
@@ -59,10 +60,26 @@ function App() {
       <Header />
       <main className="contenu">
         <StatReseau lignes={lignes} />
-        <Recherche valeur={recherche} onChange={setRecherche} />
+        {nbRecherches > 0 && (
+          <p className="compteur-recherche">
+            Vous avez effectué {nbRecherches} recherche{nbRecherches > 1 ? 's' : ''}
+          </p>
+        )}
+        <Recherche
+          valeur={recherche}
+          onChange={(val) => {
+            setRecherche(val);
+            setNbRecherches(n => n + 1);
+          }}
+        />
         <p className="resultat-recherche">
           {lignesFiltrees.length} ligne{lignesFiltrees.length > 1 ? 's' : ''} trouvee{lignesFiltrees.length > 1 ? 's' : ''}
         </p>
+        {lignesFiltrees.length === 0 && (
+          <p className="aucun-resultat">
+            Aucune ligne trouvée pour "{recherche}"
+          </p>
+        )}
         {lignesFiltrees.map(ligne => (
           <LigneBus
             key={ligne.id}
