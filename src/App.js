@@ -46,12 +46,28 @@ function App() {
   );
 
   function handleClickLigne(ligne) {
-    if (ligneSelectionnee && ligneSelectionnee.id === ligne.id) {
-      setLigneSelectionnee(null);
-    } else {
-      setLigneSelectionnee(ligne);
-    }
+  // Si on reclique sur la même ligne, on la désélectionne
+  if (ligneSelectionnee && ligneSelectionnee.id === ligne.id) {
+    setLigneSelectionnee(null);
+    return;
   }
+
+  // Sinon on charge le détail depuis Flask
+  fetch(`http://localhost:5000/lignes/${ligne.id}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Détail introuvable : " + response.status);
+      }
+      return response.json();
+    })
+    .then(detail => {
+      setLigneSelectionnee(detail);
+    })
+    .catch(error => {
+      console.error("Erreur chargement détail :", error.message);
+      setLigneSelectionnee(null);
+    });
+}
 
   if (chargement) {
     return (

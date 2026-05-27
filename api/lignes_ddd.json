@@ -36,5 +36,21 @@
     "depart": "Yoff", "arrivee": "Sandaga",
     "arrets": 11,
     "listeArrets": ["Yoff Village", "Aeroport LSS", "Parcelles U17", "Grand Yoff", "HLM", "Sandaga"]
+  },
+  {
+    "id": 7,
+    "numero": "Tata 42",
+    "depart": "Ouest Foire",
+    "arrivee": "Sandaga",
+    "arrets": 9,
+    "listeArrets": ["Ouest Foire", "Almadies", "Ngor", "Yoff", "Liberte 6", "Liberte 3", "Sandaga"]
+  },
+  {
+    "id": 8,
+    "numero": "BRT1",
+    "depart": "Guediawaye",
+    "arrivee": "Petersen",
+    "arrets": 6,
+    "listeArrets": ["Guediawaye", "Pikine", "HLM Grand Yoff", "Colobane", "Pompiers", "Petersen"]
   }
 ]
